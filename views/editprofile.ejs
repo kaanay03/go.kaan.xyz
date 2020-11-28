@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <%- include('./partials/head') -%>
+    </head>
+
+    <body>
+        <%- include('./partials/navbar') -%>
+
+        <div id="login-container" class="container">
+            <h1 id="title-label" class="display-4">Edit Profile</h1>
+            <form method="POST" action="/account/edit">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input class="form-control" name="name" id="name" value="<%=user.name%>">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input class="form-control" type="email" name="email" id="email" value="<%=user.email%>">
+                </div>
+                <div class="form-group">
+                    <label for="oldpassword">Old Password:</label>
+                    <input class="form-control" type="password" name="oldpassword" id="oldpassword">
+                </div>
+                <div class="form-group">
+                    <label for="newpassword">New Password:</label>
+                    <input class="form-control" type="password" name="newpassword" id="newpassword">
+                    <small id="newpasswordHelp" class="form-text text-muted">You may leave the password fields blank if not changing your password.</small>
+                </div>
+                <button class="btn btn-primary" type="submit">Save</button>
+            </form>
+        </div>
+
+        <%- include('./partials/scripts') -%>
+    </body>
+
+    <%- include('./partials/footer') -%>
+</html>

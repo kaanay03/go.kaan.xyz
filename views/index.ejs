@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <%- include('./partials/head') -%>
+    </head>
+
+    <body>
+        <%- include('./partials/navbar') -%>
+
+        <div id="home-container" class="container">
+            <h1 class="display-1">go.kaan.xyz</h1><small class="form-text text-muted" id="subtitle">My personal/invite-only link shortener.</small>
+        </div>
+        <div class="row">
+            <div class="col" id="button-col">
+                <a href="https://github.com/kaanay03/go.kaan.xyz" target="_blank" class="btn btn-secondary btn-lg action-btn" type="button"><i class="fa fa-github"></i>&nbsp;View Source</a>
+                <a href="mailto:me@kaan.xyz?subject=[go.kaan.xyz]%20Access%20Request&body=Please%20elaborate%20on%20your%20request." class="btn btn-secondary btn-lg action-btn" type="button">Request Access</a>
+            </div>
+        </div>
+        <%- include('./partials/scripts') -%>
+    </body>
+
+    <%- include('./partials/footer') -%>
+</html>

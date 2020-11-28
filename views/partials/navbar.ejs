@@ -1,0 +1,25 @@
+<nav class="navbar navbar-light navbar-expand-md border-bottom">
+    <div class="container-fluid"><a id="ka" class="navbar-brand" href="/">KA<sup id="subtitle">GO</sup></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div
+            class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/"><i class="fa fa-home"></i>&nbsp;Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/links"><i class="fa fa-list-ul"></i>&nbsp;My Links</a></li>
+                <% if(!user) { %>
+                    <li class="nav-item"><a class="nav-link" href="/account/login"><i class="fa fa-user"></i>&nbsp;Login</a></li>
+                <% }else{ %>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
+                            <i class="fa fa-user"></i>&nbsp;<%=user.name%></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/account/edit">Edit Profile</a>
+                            <form method="POST" action="/account/logout">
+                                <button class="dropdown-item" type="submit" href="">Logout</button></div>
+                            </form>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
+<%- include('./message') -%>
