@@ -43,7 +43,7 @@ app.use('/links', require('./routes/links'))
 app.use('/', require('./routes/index'))
 
 app.use((req, res, next)=>{
-    res.status(404).render('404.ejs ')
+    res.status(404).render('404.ejs')
 })  
 
 app.listen(PORT, ()=>console.log(`Server started on port ${PORT}`))

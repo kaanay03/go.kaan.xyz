@@ -1,7 +1,6 @@
 const express = require('express')
 const Link = require('../models/link')
 const authenticated = require('../middleware/authenticated')
-const clipboardy = require('clipboardy')
 
 const router = express.Router()
 
@@ -37,20 +36,9 @@ router.post('/add', authenticated, async (req, res)=>{
     res.redirect('/links')
 })
 
-router.get('/copy/:slug', authenticated, async (req, res)=>{
-    const link = await Link.findOne({slug: req.params.slug})
-
-    if(link){
-        if (req.user.id == link.user._id){
-            await clipboardy.write(`${req.get('host')}/${link.slug}`)
-            req.flash('info', `Your link: ${link.slug} has been copied to the clipboard .`)
-            res.redirect('/links')
-        }else{
-            res.status(403).render('404.ejs')
-        }
-    }else{
-        res.status(404).render('404.ejs')
-    }
+router.get('/:slug/copy/success/', authenticated, (req, res)=>{
+    req.flash('info', `Your link: ${req.params.slug} has been copied to the clipboard .`)
+    res.redirect('/links')
 })
 
 router.post('/save/:slug', authenticated, async(req, res)=>{

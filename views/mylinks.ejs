@@ -55,7 +55,7 @@
                                                 <td><input class="form-control" value="<%=links[i].long_url%>" style="border: 0" name="long_url" id="long_url"></td>
                                                 <td><input class="form-control" value="<%=links[i].clicks%>" style="border: 0;background:transparent;text-align: center;" disabled></input></td>
                                                 <td>
-                                                    <a href="/links/copy/<%=links[i].slug%>" class="btn btn-primary"><i class="fas fa-copy"></i></a>
+                                                    <button type="button" successredirect="<%=host%>/links/<%=links[i].slug%>/copy/success" copytext="<%=host%>/<%=links[i].slug%>" class="btn btn-primary copy-btn"><i class="fas fa-copy"></i></button>
                                                     <button class="btn btn-primary" type="submit" formaction="/links/save/<%=links[i].slug%>"><i class="fas fa-save"></i></button>
                                                     <button class="btn btn-danger" type="submit" formaction="/links/delete/<%=links[i].slug%>"><i class="fas fa-trash-alt"></i></button>    
                                                 </td>
@@ -71,6 +71,7 @@
         </div>
 
         <%- include('./partials/scripts') -%>
+        <script src="/js/test.js"></script>
     </body>
 
     <%- include('./partials/footer') -%>
